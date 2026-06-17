@@ -108,7 +108,7 @@
         .content-container {
             position:relative;
             min-height: 50vh; /* Sorgt dafür, dass dieser Bereich auch nochmal die volle Höhe hat */
-            height: auto;
+            height: 50vh;
             text-align: center;
             margin: 0 auto; /* Zentriert den Textbereich auf großen Bildschirmen */
             background-color: #ffffff;
@@ -128,10 +128,14 @@
         }
         
         /* Macht die Zahlen im Text optisch etwas markanter */
-        .tore-value, .siege-value, .unent-value, .niede-value {
+        .tore-value, .siege-value, .unent-value, .niede-value, .level-value {
             font-weight: bold;
             color: #e65100;
         }
+
+                /* NEU: Bereich für deinen Content unterhalb des Bildes */
+
+
     </style>
 </head>
 <body>
@@ -158,6 +162,25 @@
         <p>Siege: <span class="siege-value" id="siege-display">--</span> </p>
         <p>Unentschieden: <span class="unent-value" id="unent-display">--</span> </p>
         <p>Niederlagen: <span class="niede-value" id="niede-display">--</span> </p>
+    </div>
+
+    <div class="content-container" style="top: -20vh;">
+        <h2>Schwierigkeit der Tour:</h2>
+        <p> ab 20 km => Alibi-Runde </span> </p>
+        <p> <span style="color: #e65100; font-weight: bold;">ab 40 km =>  Cappucciono-Runde </span> </p>
+        <p> ab 60 km => Feierabend-Tour </span> </p>
+        <p> ab 80 km => Sonntags-Klassiker </span> </p>
+        <p> ab 100 km => Gran Fondo „Light“ </span> </p>
+        <p> ab 120 km => Hungerast-Danger-Tour </span> </p>
+        <p> ab 140 km => Windschatten-Lutscher </span> </p>
+        <p> ab 160 km => Metric Century Plus </span> </p>
+        <p> ab 180 km => Sitzfleisch-Prüfung </span> </p>
+        <p> ab 200 km => Epic 200 </span> </p>
+        <p> ab 220 km => Hinter dem Horizont... </span> </p>
+        <p> ab 240 km => Der Weg ist das Ziel </span> </p>
+        <p> ab 260 km => Die hard! </span> </p>
+        <p> ab 280 km => Die Harder! </span> </p>
+        <p> ab 300 km => I am Legend </span> </p>
     </div>
 
     <script>
