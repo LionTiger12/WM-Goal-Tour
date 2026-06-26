@@ -1,6 +1,6 @@
 Deutschland Stats
 Siege: 2
 Unentschieden: 0
-Niederlagen: 0
-Tore: 9
-KM: 65
+Niederlagen: 1
+Tore: 10
+KM: 70
