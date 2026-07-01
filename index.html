@@ -12,26 +12,23 @@
         }
 
         html {
-            /* Entfernt das feste 'height: 100%' um natürliches Scrollen zu erlauben */
             scroll-behavior: smooth;
         }
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            /* Ändert den globalen Hintergrund zu weiß für den unteren Bereich */
             background-color: #ffffff; 
             color: #1d1d1d;
         }
 
-        /* Container für das Hintergrundbild - nimmt immer exakt 100% der Bildschirmhöhe ein */
+        /* Container für das Hintergrundbild */
         .bg-container {
             position: relative;
             width: 100%;
             height: 100vh;
-            /* Ein dunkler Hintergrund NUR für den Bildbereich, falls das Bild lädt */
             background-color: #111; 
             background-image: url('bg01.jpg');
-            background-size: contain; /* Bild wird ohne Verzerrung vollständig eingepasst */
+            background-size: contain; 
             background-position: center;
             background-repeat: no-repeat;
             display: flex;
@@ -39,7 +36,7 @@
             align-items: center;
         }
 
-        /* Overlay für bessere Tiefenwirkung */
+        /* Overlay */
         .overlay {
             position: absolute;
             top: 0;
@@ -50,7 +47,7 @@
             pointer-events: none;
         }
 
-        /* Transparente, moderne Text-Anzeige-Box */
+        /* Moderne Text-Anzeige-Box */
         .info-box {
             position: relative;
             background: rgba(255, 255, 255, 0.85);
@@ -62,7 +59,7 @@
             border: 2px solid rgba(255, 255, 255, 0.4);
             text-align: center;
             z-index: 10;
-            transform: translateY(-300px); /* Leicht nach oben verschoben */
+            transform: translateY(-240px); /* Leicht angepasst für bessere Mobile-Darstellung */
         }
 
         .info-box h1 {
@@ -75,7 +72,7 @@
         }
 
         .info-box .km-value {
-            color: #e65100; /* Sportliches Orange */
+            color: #e65100; 
             font-size: 3rem;
             font-weight: 900;
             display: inline-block;
@@ -92,7 +89,7 @@
             border: 2px solid rgba(255, 255, 255, 0);
             text-align: center;
             z-index: 5;
-            transform: translateY(-120px); /* Leicht nach oben verschoben */
+            transform: translateY(-60px); /* Leicht angepasst */
         }
 
         .info-box2 h1 {
@@ -104,38 +101,35 @@
             margin: 0;
         }
 
-        /* NEU: Bereich für deinen Content unterhalb des Bildes */
+        /* KORREKTUR: Flexibler Inhaltsbereich ohne feste Höhenbeschränkung */
         .content-container {
-            position:relative;
-            min-height: 50vh; /* Sorgt dafür, dass dieser Bereich auch nochmal die volle Höhe hat */
-            height: 50vh;
+            width: 100%;
+            max-width: 600px; /* Begrenzt die Breite auf großen Bildschirmen für bessere Lesbarkeit */
             text-align: center;
-            margin: 0 auto; /* Zentriert den Textbereich auf großen Bildschirmen */
+            margin: 40px auto; /* 40px Abstand nach oben/unten, zentriert die Boxen horizontal */
+            padding: 0 20px; /* Seitlicher Puffer für Mobilgeräte */
             background-color: #ffffff;
-            align-items: center ;
         }
 
         .content-container h2 {
-            font-size: 1.2rem;
-            margin-bottom: 10px;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
             color: #111;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .content-container p {
-            font-size: 1.2rem;
-            line-height: 1.8;
+            font-size: 1.1rem;
+            line-height: 1.6;
             color: #444;
+            margin-bottom: 6px;
         }
         
-        /* Macht die Zahlen im Text optisch etwas markanter */
         .tore-value, .siege-value, .unent-value, .niede-value, .level-value {
             font-weight: bold;
             color: #e65100;
         }
-
-                /* NEU: Bereich für deinen Content unterhalb des Bildes */
-
-
     </style>
 </head>
 <body>
@@ -156,35 +150,41 @@
     </div>
 
     <div class="content-container">
-        <h2>Ergebnisse des deutschen Teams:</h2>
-        <p> -GRUPPENPHASE-</p>
-        <p>Tore: <span class="tore-value" id="tore-display">--</span> </p>
-        <p>Siege: <span class="siege-value" id="siege-display">--</span> </p>
-        <p>Unentschieden: <span class="unent-value" id="unent-display">--</span> </p>
-        <p>Niederlagen: <span class="niede-value" id="niede-display">--</span> </p>
+        <h2>Ergebnisse des deutschen Teams</h2>
+        <p><strong>- GRUPPENPHASE -</strong></p>
+        <p>Tore: <span class="tore-value" id="tore-display">--</span></p>
+        <p>Siege: <span class="siege-value" id="siege-display">--</span></p>
+        <p>Unentschieden: <span class="unent-value" id="unent-display">--</span></p>
+        <p>Niederlagen: <span class="niede-value" id="niede-display">--</span></p>
+        
+        <br>
+        
+        <p><strong>- RUNDE DER LETZTEN 32 -</strong></p>
+        <p>Tore: <span class="tore-value">1</span></span></p>
+        <p>Siege: <span class="siege-value">0</span></p>
+        <p>Niederlagen: <span class="niede-value">1</span></p>
     </div>
 
-    <div class="content-container" style="top: -15vh;">
-        <h2>Schwierigkeit der Tour:</h2>
-        <p> ab 20 km => Alibi-Runde </p>
-        <p> ab 40 km =>  Cappucciono-Runde </p>
-        <p> <span style="color: #e65100; font-weight: bold;"> ab 60 km => Feierabend-Tour </span> </p>
-        <p> ab 80 km => Sonntags-Klassiker </span> </p>
-        <p> ab 100 km => Gran Fondo „Light“ </span> </p>
-        <p> ab 120 km => Hungerast-Danger-Tour </span> </p>
-        <p> ab 140 km => Windschatten-Lutscher </span> </p>
-        <p> ab 160 km => Metric Century Plus </span> </p>
-        <p> ab 180 km => Sitzfleisch-Prüfung </span> </p>
-        <p> ab 200 km => Epic 200 </span> </p>
-        <p> ab 220 km => Hinter dem Horizont... </span> </p>
-        <p> ab 240 km => Der Weg ist das Ziel </span> </p>
-        <p> ab 260 km => Die hard! </span> </p>
-        <p> ab 280 km => Die harder! </span> </p>
-        <p> ab 300 km => I am Legend </span> </p>
+    <div class="content-container">
+        <h2>Schwierigkeit der Tour</h2>
+        <p>ab 20 km => Alibi-Runde</p>
+        <p>ab 40 km => Cappuccino-Runde</p>
+        <p><span style="color: #e65100; font-weight: bold;">ab 60 km => Feierabend-Tour</span></p>
+        <p>ab 80 km => Sonntags-Klassiker</p>
+        <p>ab 100 km => Gran Fondo „Light“</p>
+        <p>ab 120 km => Hungerast-Danger-Tour</p>
+        <p>ab 140 km => Windschatten-Lutscher</p>
+        <p>ab 160 km => Metric Century Plus</p>
+        <p>ab 180 km => Sitzfleisch-Prüfung</p>
+        <p>ab 200 km => Epic 200</p>
+        <p>ab 220 km => Hinter dem Horizont...</p>
+        <p>ab 240 km => Der Weg ist das Ziel</p>
+        <p>ab 260 km => Die hard!</p>
+        <p>ab 280 km => Die harder!</p>
+        <p>ab 300 km => I am Legend</p>
     </div>
 
     <script>
-        // Funktion zum Laden und Parsen der wm_stats.txt Datei
         async function loadKmStats() {
             try {
                 const response = await fetch('wm_stats.txt');
@@ -201,28 +201,24 @@
                 let niedeValue = "0";
                 let toreValue = "0";
 
-                // Durchsucht die Zeilen nach den jeweiligen Begriffen
                 for (let line of lines) {
                     const trimmedLine = line.trim();
+                    const upperLine = trimmedLine.toUpperCase();
                     
-                    if (trimmedLine.toUpperCase().startsWith("KM:")) {
+                    // KORREKTUR: Sichereres Parsing durch einheitliche Großbuchstaben-Abfrage
+                    if (upperLine.startsWith("KM:")) {
                         kmValue = trimmedLine.split(':')[1].trim();
-
-                    } else if (trimmedLine.toUpperCase().startsWith("SIEGE:")) {
+                    } else if (upperLine.startsWith("SIEGE:")) {
                         siegeValue = trimmedLine.split(':')[1].trim();
-
-                    } else if (trimmedLine.toUpperCase().startsWith("UNENTSCHIEDEN:")) {
+                    } else if (upperLine.startsWith("UNENTSCHIEDEN:")) {
                         unentValue = trimmedLine.split(':')[1].trim();
-
-                    } else if (trimmedLine.toUpperCase().startsWith("NIEDERLAGEN:")) {
+                    } else if (upperLine.startsWith("NIEDERLAGEN:")) {
                         niedeValue = trimmedLine.split(':')[1].trim();
-
-                    } else if (trimmedLine.toUpperCase().startsWith("TORE:")) {
+                    } else if (upperLine.startsWith("TORE:")) {
                         toreValue = trimmedLine.split(':')[1].trim();
                     }
                 }
 
-                // Werte in die HTML-Elemente eintragen
                 document.getElementById('km-display').textContent = kmValue;
                 document.getElementById('siege-display').textContent = siegeValue;
                 document.getElementById('unent-display').textContent = unentValue;
